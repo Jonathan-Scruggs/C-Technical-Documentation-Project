@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Technical Documentation Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="navbarcontainer">
+            <nav id="navbar">
+                <h2 id="navbarheader">C Documentation</h2>
+                <ul id="navbarlist">
+                <li><a href="#introduction">Introduction</a></li> 
+                <li><a href="#setup">Setup</a>
+                <li><a href="#first-program">First-program</a></li> 
+                <li><a href="#formatted-io">Formatted-io</a></li> 
+                <li><a href="#expressions">Expressions</a></li> 
+                <li><a href="#arrays">Arrays</a></li> 
+                </ul>
+            </nav>
+        </div>
+        <div id="main-section-div">
+            <header class="header">
+                <h1>C Programming Language Documentation</h1>
+            </header>
+            <main id="main-doc">
+                <section class="main-section" id="introduction">
+                    <h2>Introduction</h2>
+                    <p>Welcome to the C Programming Language documentation. This guide will help you understand the basics of C,
+                    one of the most powerful and widely used programming languages.</p>
+                    <h3>Overview</h3>
+                    <p>C is a powerful general-purpose programming language that has been widely used in various applications since its creation. Developed in the early 1970s by Dennis Ritchie at Bell Labs, C has become one of the most enduring and influential programming languages. It has shaped many modern languages, including C++, C#, and Java, and continues to be a cornerstone in the world of software development.</p> 
+                </section>
+                <section class="main-section" id="setup">
+                    <h2>Setup</h2>
+                    <p>To start programming in C, you'll need to set up your development environment. This involves installing a C compiler and optionally choosing an Integrated Development Environment (IDE) to write, compile, and debug your code. Here's a step-by-step guide to get you started:</p>
+                    <ul>
+                        <li><strong>Windows</strong>
+                            <ul>
+                                <li><a href="https://sourceforge.net/projects/mingw/">MinGW</a>: Download and add to PATH.</li>
+                                <li><a href="https://visualstudio.microsoft.com/">Visual Studio</a>: Download and select "Desktop development with C++".</li>
+                            </ul>
+                        </li>
+                        <li><strong>macOS</strong>
+                            <ul>
+                                <li><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a>: Download from the Mac App Store.</li>
+                                <li>Command Line Tools: Install via Terminal with <code>xcode-select --install</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Linux</strong>
+                            <ul>
+                                <li><a href="https://gcc.gnu.org/">GCC</a>: Install via Terminal with <code>sudo apt update && sudo apt install build-essential</code> (Ubuntu).</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Choosing an IDE</h3>
+                    <p>The IDE I personally recommend is
+                    <a href="https://code.visualstudio.com/">Visual Studio Code</a>: After installing Visual Studio Code 
+                    Install the "C/C++" extension.</p>
+                </section>
+                <section class="main-section" id="first-program">
+                    <h2>Setting Up Your First C Program</h2>
+                    <h3>File Extension and Opening in VS Code</h3>
+                    <p>To start coding in C, create a file with a <code>.c</code> extension. This tells your compiler that the file contains C source code.</p>
+                    <p><strong>Creating a File:</strong></p>
+                    <ul>
+                        <li>Create a new file and save it as <code>hello.c</code>.</li>
+                    </ul>
+                    <p><strong>Opening the File in VS Code:</strong></p>
+                    <ul>
+                        <li>In Visual Studio Code, go to <code>File &gt; Open File...</code> and select your <code>hello.c</code> file.</li>
+                        <li>You can also open the integrated terminal in VS Code by pressing <code>Ctrl+`</code>.</li>
+                    </ul>
+                    <h3>Understanding the <code>#include</code> Directive</h3>
+                    <p>The <code>#include</code> directive in C is used to include the contents of a file or library in your program. This is often used to include standard libraries that provide useful functions.</p>
+                    <pre><code>#include &lt;stdio.h&gt;</code></pre>
+                    <p>The <code>#include &lt;stdio.h&gt;</code> directive tells the compiler to include the Standard Input Output library, which contains functions like <code>printf</code>.</p>
+                    <h3>The <code>main</code> Function</h3>
+                    <p>Every C program must have a <code>main</code> function. This is the entry point where the execution of the program begins.</p>
+                    <pre><code>int main() {
+        // Your code goes here
+        return 0;
+        }</code></pre>
+                    <p>The <code>main</code> function returns an integer value. By convention, returning 0 indicates that the program executed successfully.</p>
+                    <h3>Using the <code>printf</code> Function</h3>
+                    <p>The <code>printf</code> function is used to print text to the console. It's a part of the Standard Input Output library that we included with <code>#include &lt;stdio.h&gt;</code>.</p>
+                    <pre><code>#include &lt;stdio.h&gt;
+
+        int main() {
+        printf("Hello, World!\n");
+        return 0;
+        }</code></pre>
+                    <p><strong>Writing Your Program:</strong></p>
+                    <ul>
+                        <li>In your <code>hello.c</code> file, type the code above.</li>
+                    </ul>
+                    <p><strong>Compiling and Running Your Program:</strong></p>
+                    <ul>
+                        <li>Open Terminal or Command Prompt, navigate to your file's directory, and run:</li>
+                        <pre><code>gcc hello.c -o hello
+        ./hello</code></pre>
+                        <li>You should see the output: <code>Hello, World!</code></li>
+                    </ul>
+                </section>
+                <section class="main-section" id="formatted-io">
+                    <h2>Formatted Input/Output</h2>
+                    
+                    <h3>Formatted Output with <code>printf</code></h3>
+                    <p>The <code>printf</code> function is used to output formatted text to the console. It allows you to format strings and display variables of various types.</p>
+                    
+                    <p><strong>Basic Syntax:</strong></p>
+                    <pre><code>printf("format string", argument1, argument2, ...);</code></pre>
+                    
+                    <p><strong>Format Specifiers:</strong> The format string can contain placeholders (format specifiers) that are replaced by the values of the arguments.</p>
+                    <ul>
+                        <li><code>%d</code> for integers</li>
+                        <li><code>%f</code> for floating-point numbers</li>
+                        <li><code>%c</code> for characters</li>
+                        <li><code>%s</code> for strings</li>
+                    </ul>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int age = 25;
+    float gpa = 3.75;
+    char grade = 'A';
+    char name[] = "Alice";
+
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("GPA: %.2f\n", gpa);
+    printf("Grade: %c\n", grade);</code></pre>
+                    
+                    <h3>Formatted Input with <code>scanf</code></h3>
+                    <p>The <code>scanf</code> function is used to read formatted input from the console. It reads input according to the format specifiers and stores the values in the provided variables.</p>
+                    
+                    <p><strong>Basic Syntax:</strong></p>
+                    <pre><code>scanf("format string", &variable1, &variable2, ...);</code></pre>
+                    
+                    <p><strong>Ampersand (<code>&</code>):</strong> The address-of operator (<code>&</code>) is used to pass the address of the variables where the input will be stored.</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int age;
+    float gpa;
+    char grade;
+    char name[50];
+
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    printf("Enter your GPA: ");
+    scanf("%f", &gpa);
+
+    printf("Enter your grade: ");
+    scanf(" %c", &grade);  // Note the space before %c to consume any leftover newline
+
+    printf("Name: %s, Age: %d, GPA: %.2f, Grade: %c\n", name, age, gpa, grade);</code></pre>
+                </section>
+                
+                <section class="main-section" id="expressions">
+                    <h2>Expressions</h2>
+                    
+                    <p>Expressions in C are combinations of variables, constants, and operators that compute a value.</p>
+                    
+                    <h3>Arithmetic Expressions</h3>
+                    <p>Arithmetic expressions perform mathematical operations using operators like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code>.</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int a = 5, b = 3;
+    int sum = a + b;      // sum is 8
+    int difference = a - b;  // difference is 2
+    int product = a * b;  // product is 15
+    int quotient = a / b; // quotient is 1
+    int remainder = a % b; // remainder is 2</code></pre>
+                    
+                    <h3>Relational Expressions</h3>
+                    <p>Relational expressions compare values using operators like <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int x = 10, y = 5;
+    int result;
+
+    result = (x == y); // result is 0 (false)
+    result = (x != y); // result is 1 (true)
+    result = (x &gt; y);  // result is 1 (true)
+    result = (x &lt; y);  // result is 0 (false)
+    result = (x &gt;= y); // result is 1 (true)
+    result = (x &lt;= y); // result is 0 (false)</code></pre>
+                    
+                    <h3>Logical Expressions</h3>
+                    <p>Logical expressions combine multiple conditions using logical operators like <code>&&</code> (AND), <code>||</code> (OR), and <code>!</code> (NOT).</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int a = 1, b = 0;
+    int result;
+
+    result = (a && b); // result is 0 (false)
+    result = (a || b); // result is 1 (true)
+    result = (!a);     // result is 0 (false)
+    result = (!b);     // result is 1 (true)</code></pre>
+                </section>
+                <section class="main-section" id="arrays">
+                    <h2>One-Dimensional Arrays</h2>
+                    
+                    <p>An array is a collection of elements of the same type stored in contiguous memory locations.</p>
+                    
+                    <h3>Declaring and Initializing Arrays</h3>
+                    <p>You can declare an array by specifying its type and size. You can also initialize it at the time of declaration.</p>
+                    
+                    <p><strong>Declaration:</strong></p>
+                    <pre><code>int numbers[5]; // declares an array of 5 integers</code></pre>
+                    
+                    <p><strong>Initialization:</strong></p>
+                    <pre><code>int numbers[5] = {1, 2, 3, 4, 5}; // initializes the array with 5 values</code></pre>
+                    
+                    <h3>Accessing Array Elements</h3>
+                    <p>Array elements are accessed using their index, which starts from 0.</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int numbers[5] = {1, 2, 3, 4, 5};
+
+    printf("First element: %d\n", numbers[0]); // prints 1
+    printf("Second element: %d\n", numbers[1]); // prints 2
+
+    // Modifying an array element
+    numbers[2] = 10;
+    printf("Modified third element: %d\n", numbers[2]); // prints 10</code></pre>
+                    
+                    <h3>Iterating Through Arrays</h3>
+                    <p>You can use loops to iterate through arrays and perform operations on each element.</p>
+                    
+                    <p><strong>Example:</strong></p>
+                    <pre><code>int numbers[5] = {1, 2, 3, 4, 5};
+    int sum = 0;
+
+    for (int i = 0; i &lt; 5; i++) {
+        sum += numbers[i];
+    }
+
+    printf("Sum of elements: %d\n", sum); // prints the sum of all elements</code></pre>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
